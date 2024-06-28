@@ -1,0 +1,25 @@
+# Bỏ qua các thư mục bin và obj
+bin/
+obj/
+
+# Bỏ qua các file tạm thời, các file log
+*.log
+*.tmp
+*.bak
+*.swp
+
+# Bỏ qua các file được tạo bởi Visual Studio
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Bỏ qua các file build bởi build system
+*.pdb
+*.exe
+*.dll
+*.app
+
+# Bỏ qua các thư mục khác có thể tạo ra bởi IDE hoặc hệ thống build
+_ReSharper/
