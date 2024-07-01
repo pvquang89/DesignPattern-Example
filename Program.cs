@@ -1,9 +1,11 @@
 ﻿using System.Data.Common;
 using System.Runtime.CompilerServices;
+using System.Security.Cryptography;
 
 internal class Program
 {
 
+    //Ví dụ 1 -------------------------------------------------------------
     public abstract class Animal
     {
         public abstract void Speak();
@@ -50,20 +52,77 @@ internal class Program
             return new Dog();
         }
     }
+
+    //Ví dụ 2 -------------------------------------------------------------
+    public interface IShape
+    {
+        void Draw();
+    }
+    public class Circle : IShape
+    {
+        public void Draw()
+        {
+            System.Console.WriteLine("Drawing a circle...");
+        }
+    }
+
+    public class Rectangle : IShape
+    {
+        public void Draw()
+        {
+            System.Console.WriteLine("Drawing a retangle...");
+        }
+    }
+
+    public abstract class ShapeFactory
+    {
+        public abstract IShape CreateShape();
+
+    }
+
+    public class CircleFactory : ShapeFactory
+    {
+        public override IShape CreateShape()
+        {
+            return new Circle();
+        }
+    }
+
+    public class RectangleFactory : ShapeFactory
+    {
+        public override IShape CreateShape()
+        {
+            return new Rectangle();
+        }
+    }
+
     private static void Main(string[] args)
     {
+        //ví dụ 1 -----------------------------------------------------
         //tạo nhà máy mèo
-        AnimalFactory catFactory = new CatFactory();   
+        AnimalFactory catFactory = new CatFactory();
         //tạo nhà máy chó
         AnimalFactory dogFactory = new DogFactory();
-    
+
         //tạo đối tượng từ method của nhà máy
         //tạo mà không cần biết rõ nó là loại nào
         //tuân thủ nguyên tắc Solid : Open closed principle
         Animal cat = catFactory.CreateAnimal();
-        Animal dog = dogFactory.CreateAnimal(); 
+        Animal dog = dogFactory.CreateAnimal();
         //
         cat.Speak();
         dog.Speak();
+
+        //ví dụ 2 ----------------------------------------------------
+        //tạo nhà máy hình tròn
+        ShapeFactory circleFactory = new CircleFactory();
+        //tạo nhà máy hình chữ nhật
+        ShapeFactory rectangleFactory = new RectangleFactory();
+
+        IShape circle = circleFactory.CreateShape();
+        IShape rectangle = rectangleFactory.CreateShape();
+
+        circle.Draw();
+        rectangle.Draw();
     }
 }
