@@ -1,5 +1,6 @@
 ﻿internal class Program
 {
+    //Abstract Factory cung cấp interface để tạo ra toàn bộ họ các đối tượng liên quan.
     //Gồm 5 thành phần chính : 
     //1. Abstract factory : Khai báo một giao diện với các phương thức tạo ra các sản phẩm khác nhau.
     //2. Concrete factory : Thực thi giao diện AbstractFactory để tạo ra các đối tượng cụ thể của các sản phẩm.
