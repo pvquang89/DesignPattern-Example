@@ -90,14 +90,15 @@
     }
     private static void Main(string[] args)
     {
+        // Tạo một đối tượng ConcreteHouseBuilder
         IHouseBuilder builder = new ConcreteHouseBuilder();
-
+        // Tạo một đối tượng HouseDirector và kết nối với builder
         HouseDirector director = new HouseDirector(builder);
-
+        // Xây dựng nhà
         director.constructHouse();
-
+        // Lấy kết quả
         House house = builder.getResult();
-
-        house.showDetails();        
+        //Hiện thông tin
+        house.showDetails();
     }
 }
