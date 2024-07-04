@@ -99,11 +99,11 @@ internal class Program
     private static void Main(string[] args)
     {
         //ví dụ 1 -----------------------------------------------------
-        //tạo nhà máy mèo
+        //create cat factory
         AnimalFactory catFactory = new CatFactory();
-        //tạo nhà máy chó
+        //create dog factory
         AnimalFactory dogFactory = new DogFactory();
-
+        
         //tạo đối tượng từ method của nhà máy
         //tạo mà không cần biết rõ nó là loại nào
         //tuân thủ nguyên tắc Solid : Open closed principle
@@ -114,9 +114,9 @@ internal class Program
         dog.Speak();
 
         //ví dụ 2 ----------------------------------------------------
-        //tạo nhà máy hình tròn
+        //create circle factory
         ShapeFactory circleFactory = new CircleFactory();
-        //tạo nhà máy hình chữ nhật
+        //create rectangle factory
         ShapeFactory rectangleFactory = new RectangleFactory();
 
         IShape circle = circleFactory.CreateShape();
