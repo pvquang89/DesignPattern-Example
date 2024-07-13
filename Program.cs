@@ -1,4 +1,11 @@
-﻿﻿internal class Program
+﻿﻿//Bridge sử dụng khi : 
+//Khi muốn tách rời abstraction và implementation để cả hai có thể thay đổi độc lập.
+//Khi có nhiều biến thể của abstraction và implementation, và bạn muốn kết hợp chúng một cách linh hoạt.
+
+//Ví dụ sau tách biệt abstraction (Message) và implementation (IMessageSender) 
+//Tách biệt logic gửi thông báo (Message) và phương thức gửi cụ thể (EmailSender, SmsSender).
+// Điều này giúp cho việc thay đổi hoặc mở rộng một phần không ảnh hưởng đến phần còn lại.
+internal class Program
 {
 
     // Implementor
